@@ -98,19 +98,18 @@ console.log('The user guessed correctly on their ' + counter + ' guess.');
 
 var things = ['chapstick', 'airpods', 'cash', 'debit card', 'license'];
 var guess = prompt('What do you think Shane has in his pockets?');
-var flag;
 counter = 1;
 
-while (counter <= 6) {
-    for (i = 0; i < things.length; i++) {
-        if (guess === things[i]) {
-            alert('Correct! Shane does have a ' + guess + ' in his pocket');
-            score++;
-            break;
-        }
-        if (!flag) {
+for (var i = 0; i < things.length; i++) {
+    if (guess === things[i]) {
+        alert('Correct! Shane does have a ' + guess + ' in his pocket');
+        score++;
+        break;
+     } else if (guess !== things[i]) {
             guess = prompt('Incorrect. Guess again!');
             counter++;
-        }
+    } else if (counter > 4) {
+        break;
     }
 }
+alert('You\'re final score is:' + score);
